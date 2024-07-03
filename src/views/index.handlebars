@@ -1,1 +1,12 @@
 <h1>programando con hadlebars</h1>
+
+{{#each imagenes}}
+    <div class="card">
+        <img src="{{this.path}}" alt="{{this.title}}">
+        <h3>{{this.title}}</h3>
+        <p>{{this.descriction}}</p>    
+        <a href="/image/{{this._id}}/delete">Eliminar</a>
+    </div>
+{{/each}}
+
+
