@@ -25,7 +25,7 @@ router.post("/upload", async (req, res) =>{
         imagen.description = req.body.description
         imagen.filename = req.body.filename
         imagen.path = "/img/" + req.file.filename
-        
+
         //Guardamos el objeto en la base de datos
         await imagen.save()
         res.redirect("/")
@@ -36,7 +36,7 @@ router.post("/upload", async (req, res) =>{
 })
 
 //Ruta para eliminar imagenes
-router.get("/image/:id/delete", async (req,res) =>{
+router.delete("/image/:id/delete", async (req,res) =>{
     const {id} = req.params
     const imagen = await ImagenModel.findByIdAndDelete(id)
     await fs.unlink("./src/public" + imagen.path)
